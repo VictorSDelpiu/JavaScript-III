@@ -13,11 +13,11 @@
 
 // code example for Window Binding
 
-let egg = function(Iwantbaconalso){
-    return  "I want waffles also.";
-}
-console.log(egg())
-
+function sayName(name) {
+    console.log(this);
+    return name;
+  }
+  sayName("D'Artagnan");
 
 
 
@@ -45,22 +45,41 @@ ImplicitBind.Maybeonasunday('Sike!');
 // Principle 3
 
 // code example for New Binding
-function tacos(tomatoes){
-this.lettuce = `lettuce`;
-this.tomatoes = tomatoes;
-this.cheese = function(){
-    console.log(this.lettuce + this.tomatoes);
-    console.log(this);
- };
-}
-const mytacos = new Lovethistaco(`tacogrande`);
-const burrito = new Lovethisburrito(`burritogrande`);
-
-mytacos.cheese();
-burrito.cheese();
+/*function CordialPerson(greeter) {
+    this.greeting = 'Hello ';
+    this.greeter = greeter;
+    this.speak = function() {
+      console.log(this.greeting + this.greeter);
+      console.log(this);
+    };
+  }
+  
+  const jerry = new CordialPerson('Newman');
+  const newman = new CordialPerson('Jerry');
+  
+  jerry.speak();
+  newman.speak();
+  */
 
 
 
 // Principle 4
 
 // code example for Explicit Binding
+function CordialPerson(greeter) {
+    this.greeting = 'Hello ';
+    this.greeter = greeter;
+    this.speak = function() {
+      console.log(this.greeting + this.greeter);
+      console.log(this);
+    };
+  }
+  
+  const jerry = new CordialPerson('Newman');
+  const newman = new CordialPerson('Jerry');
+  
+  jerry.speak();
+  newman.speak();
+
+  jerry.speak.call(newman);
+  newman.speak.apply(jerry);

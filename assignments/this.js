@@ -1,10 +1,10 @@
 /* The for principles of "this";
 /*in your own words. explain the four principle for the "this" keyword below.*
 
-1. Points to describe a specific object
-2. Binds to an object
-3.
-4.
+1. Window/Global Object Binding - When in the global scope, the value of “this” will be the window/console Object;
+2. Implicit Binding- Whenever a function is called by a preceding dot, the object before that dot is this.
+3. New binding- Whenever a constructor function is used, this refers to the specific instance of the object that is created and returned by the constructor function.
+4. Explicit binding - Whenever JavaScript’s call or apply method is used, this is explicitly defined.
 *
 /* write out a code example of each explanation above
 */
@@ -18,9 +18,6 @@ function sayName(name) {
     return name;
   }
   sayName("D'Artagnan");
-
-
-
 
 // Principle 2
 
